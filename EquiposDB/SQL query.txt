@@ -1,4 +1,3 @@
-/*
 create table jugadores (
 	
 	id int identity(1,1) primary key,
@@ -32,16 +31,16 @@ create table entrenador (
 	fecNac date not null
 );
 
-use terciario;
+use EquipoBDD;
 
 --Se agregan los entrenadores.
-insert into entrenador (nombre, dni, fecNac) values ('Armando', 12312312, '20-09-1980');
-insert into entrenador (nombre, dni, fecNac) values ('Pedro', 12312312, '18-05-1994');
+insert into entrenador (nombre, dni, fecNac) values ('Cristian', 12312312, '1982-03-10');
+insert into entrenador (nombre, dni, fecNac) values ('Pedro', 32132132, '1990-08-12');
 select * from entrenador;
 
 --Se agregan los equipos.
-insert into equipos(nombre, entrenador) values ('Boca', 1);
-insert into equipos(nombre, entrenador) values ('Sarmiento', 2);
+insert into equipos(nombre, entrenador) values ('River', 1);
+insert into equipos(nombre, entrenador) values ('San Lorenzo', 2);
 select * from equipos;
 
 --Se agregan las localidades.
@@ -51,10 +50,10 @@ insert into localidad (provincia, departamento, CP) values ('Buenos Aires', 'Mer
 select * from localidad;
 
 --Se agregan los jugadores.
-insert into jugadores (nombre, dni, fecNac, localidad, equipo) values ('Pedro', 12312312, '17-09-2005', 1, 1);
-insert into jugadores (nombre, dni, fecNac, localidad, equipo) values ('Jorge', 12312312, '09-12-2001', 2, 1);
-insert into jugadores (nombre, dni, fecNac, localidad, equipo) values ('Julio', 12312312, '21-05-2000', 3, 2);
-insert into jugadores (nombre, dni, fecNac, localidad, equipo) values ('Roberto', 12312312, '05-03-1990', 1, 2);
+insert into jugadores (nombre, dni, fecNac, localidad, equipo) values ('Luis', 66487452, '2005-10-10', 1, 1);
+insert into jugadores (nombre, dni, fecNac, localidad, equipo) values ('Jorge', 21321313, '2001-04-04', 2, 1);
+insert into jugadores (nombre, dni, fecNac, localidad, equipo) values ('Julio', 53153273, '2003-05-05', 3, 2);
+insert into jugadores (nombre, dni, fecNac, localidad, equipo) values ('Roberto', 51026478, '1998-08-08', 1, 2);
 select * from jugadores;
 
 --Se crean las FK
@@ -73,9 +72,8 @@ alter table jugadores
 	foreign key (localidad)
 	references localidad(id);
 
-use terciario
+use EquipoBDD
 select * from jugadores;
 select * from localidad;
 select * from equipos;
 select * from entrenador;
-/*
